@@ -2,8 +2,6 @@ package ports
 
 import "context"
 
-type TransactionNoResult struct{}
-
 type TransactionRunner[T any] interface {
 	Run(
 		ctx context.Context,
