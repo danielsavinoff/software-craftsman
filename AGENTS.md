@@ -18,6 +18,7 @@
 
 - Run SQL queries within a database transaction. Use a saga to coordinate a workflow that spans independent transactions or systems.
 - Use the outbox pattern to reliably publish events alongside database changes.
+- If a project uses a cache, implement caching as a repository wrapper: on reads, return cached data when present; otherwise call the wrapped repository and store successful results using a supplied caching function. On saves, call the wrapped repository first, then use the caching function to update or populate the cache after a successful save.
 
 # Go Source Formatting
 
