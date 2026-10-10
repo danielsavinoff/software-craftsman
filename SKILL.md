@@ -26,6 +26,13 @@ For Go work, read [languages/go/conventions.md](languages/go/conventions.md). Re
 - Store deployment configuration under `deploy/{docker,k8,other}/{dev,prod,stage}` as applicable. Name Docker Compose files `docker-compose.development.yaml` and `docker-compose.production.yaml`. Name environment files `.env.development` and `.env.production`, and provide corresponding `.env.development.example` and `.env.production.example` files with example values.
 - Document project requirements in `README.md`, including prerequisites and configuration, and explain how to start the project using the available deployment configuration and how to run it locally.
 - Write `README.md` with minimal words and complexity; exclude filler.
+- Use the applicable templates from [github/gitignore](https://github.com/github/gitignore) for project `.gitignore` files. Replace environment-file ignore rules such as `.env` with:
+
+  ```gitignore
+  # Environment files, except checked-in examples
+  .env*
+  !.env*.example
+  ```
 
 ## Data and Events
 
