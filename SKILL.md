@@ -17,6 +17,7 @@ For Node.js work, read [languages/nodejs/conventions.md](languages/nodejs/conven
 
 ## Architecture
 
+- Use SOLID principles: single responsibility, open/closed, Liskov substitution, interface segregation, and dependency inversion.
 - Use hexagonal architecture: keep domain and application logic independent of delivery mechanisms and infrastructure. Use CQRS to separate commands from queries.
 - Keep entry points under `cmd/{api,cli,etc}`.
 - Keep application, domain, and infrastructure code under `internal/`:
