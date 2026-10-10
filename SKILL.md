@@ -18,6 +18,7 @@ For Node.js work, read [languages/nodejs/conventions.md](languages/nodejs/conven
 ## Architecture
 
 - Use SOLID principles: single responsibility, open/closed, Liskov substitution, interface segregation, and dependency inversion.
+- Use enums for fixed sets of values and named constants for other fixed values; do not use magic numbers or strings.
 - Use hexagonal architecture: keep domain and application logic independent of delivery mechanisms and infrastructure. Use CQRS to separate commands from queries.
 - Keep entry points under `cmd/{api,cli,etc}`.
 - Keep application, domain, and infrastructure code under `internal/`:
@@ -26,6 +27,7 @@ For Node.js work, read [languages/nodejs/conventions.md](languages/nodejs/conven
   - `internal/infra`: external adapters.
 - If the project uses RESTerm, store request files in `api/requests/{name}.http`.
 - If the project has an API, specify it in `api/openapi.yaml`.
+- Use consistent casing for REST API fields across the whole project, including request and response payloads, the OpenAPI specification, and serialization mappings.
 - Store deployment configuration under `deploy/{docker,k8,other}/{dev,prod,stage}` as applicable. Name Docker Compose files `docker-compose.development.yaml` and `docker-compose.production.yaml`. Name environment files `.env.development` and `.env.production`, and provide corresponding `.env.development.example` and `.env.production.example` files with example values.
 - Document project requirements in `README.md`, including prerequisites and configuration, and explain how to start the project using the available deployment configuration and how to run it locally.
 - Write `README.md` with minimal words and complexity; exclude filler.
