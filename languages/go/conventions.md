@@ -2,6 +2,10 @@
 
 Read this file when creating or changing Go code with software-craftsman. Apply it together with the shared rules in `SKILL.md`.
 
+## File Naming
+
+- Use snake_case for Go source filenames, for example `transaction_runner.go`.
+
 ## Architecture
 
 - Each `cmd/{cli,api}` entry point has a `main.go` containing only `main`; call `Bootstrap` from its `bootstrap.go` to construct and inject dependencies.

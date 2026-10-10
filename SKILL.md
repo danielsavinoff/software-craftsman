@@ -13,6 +13,8 @@ Apply these conventions to the requested work. Respect the user's chosen languag
 
 For Go work, read [languages/go/conventions.md](languages/go/conventions.md). Reusable Go snippets live in [languages/go/snippets/](languages/go/snippets/); inspect and adapt only the snippets needed for the task.
 
+For Node.js work, read [languages/nodejs/conventions.md](languages/nodejs/conventions.md).
+
 ## Architecture
 
 - Use hexagonal architecture: keep domain and application logic independent of delivery mechanisms and infrastructure. Use CQRS to separate commands from queries.
