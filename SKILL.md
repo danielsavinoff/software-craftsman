@@ -19,6 +19,7 @@ For Node.js work, read [languages/nodejs/conventions.md](languages/nodejs/conven
 
 - Use SOLID principles: single responsibility, open/closed, Liskov substitution, interface segregation, and dependency inversion.
 - Use enums for fixed sets of values and named constants for other fixed values; do not use magic numbers or strings.
+- Choose the most efficient algorithms and data structures for the expected workload. Use Big O time and space complexity to compare options, accounting for input size, operation frequency, and memory constraints.
 - Use hexagonal architecture: keep domain and application logic independent of delivery mechanisms and infrastructure. Use CQRS to separate commands from queries.
 - Keep entry points under `cmd/{api,cli,etc}`.
 - Keep application, domain, and infrastructure code under `internal/`:
