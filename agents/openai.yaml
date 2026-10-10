@@ -1,0 +1,3 @@
+interface:
+  display_name: "Software Craftsman"
+  short_description: "Build software with hexagonal architecture and CQRS"

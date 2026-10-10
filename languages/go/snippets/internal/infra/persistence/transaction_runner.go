@@ -29,7 +29,11 @@ func (r *TransactionRunner[T]) Run(
 
 		return result, nil
 	}
-	tx, err := r.db.BeginTx(ctx, nil)
+
+	tx, err := r.db.BeginTx(
+		ctx,
+		nil,
+	)
 	if err != nil {
 		return zero, err
 	}
@@ -37,7 +41,10 @@ func (r *TransactionRunner[T]) Run(
 	// Roll back on panics and commit failures; no-op after a commit.
 	defer tx.Rollback()
 
-	ctx = WithContext(ctx, tx)
+	ctx = WithContext(
+		ctx,
+		tx,
+	)
 
 	result, err := fn(ctx)
 	if err != nil {
@@ -52,7 +59,11 @@ func (r *TransactionRunner[T]) Run(
 }
 
 func WithContext(ctx context.Context, tx *sql.Tx) context.Context {
-	return context.WithValue(ctx, transactionKey{}, tx)
+	return context.WithValue(
+		ctx,
+		transactionKey{},
+		tx,
+	)
 }
 
 func FromContext(ctx context.Context) (*sql.Tx, bool) {
