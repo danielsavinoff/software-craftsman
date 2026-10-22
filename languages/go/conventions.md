@@ -24,8 +24,13 @@ Read this file when creating or changing Go code with software-craftsman. Apply 
 
 - Initialize each domain model through a `New` constructor that validates all invariants before returning it.
 - Keep each domain model and its constructor in its own source file; keep each enum in its own source file.
+- Give every domain model struct field an explicit `json` tag with a snake_case field name (for example, `json:"user_id"`).
 - Define repository interfaces in the domain package. Name each repository interface file `{name}_repository.go` (for example, `exercise_repository.go`).
 - Each repository method must take `context.Context` as its first parameter.
+- Keep each repository method to at most two return values.
+- A repository method that finds a single model must return a not-found error when no match exists. The use case must handle that error appropriately or propagate it to the infrastructure delivery adapter.
+- Repository method names must not repeat the repository's name or its components. For example, use `Find` and `Save` on `IdentityCredentialsRepository`, without `Identity` or `Credentials` in the method names.
+- Do not put blank lines between repository methods unless they separate logical groups.
 - Do not use `Valid` methods as a substitute for constructor validation. Call constructors at persistence and application boundaries instead of assembling domain models directly.
 - Define each error in the package or subpackage that owns the condition, in that package's `errors.go` file. Do not create errors inline with `errors.New`; use the package's declared errors.
 
