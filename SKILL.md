@@ -1,19 +1,25 @@
 ---
 name: software-craftsman
-description: "Build or extend software using hexagonal architecture, CQRS, validated domain models, and transactional persistence. Use when scaffolding a project or implementing application use cases and adapters with these conventions. Supported: Go, Node.js."
+description: "Generate specs, implement features, fix bugs, or refactor software using hexagonal architecture, CQRS, validated domain models, and transactional persistence. Use only when the project already uses hexagonal architecture or the operator explicitly authorizes it for the task. Supported: Go, Node.js."
 ---
 
 # Software Craftsman
 
 Supported: Go, Node.js
 
-Apply these conventions to the requested work. Respect the user's chosen language, stack, and project instructions; in an existing project, avoid restructuring unrelated code.
+Use this skill when generating specs, implementing features, fixing bugs, or performing related development work only if the project already uses hexagonal architecture or the operator explicitly authorizes hexagonal architecture for the task.
+
+Apply the shared conventions below across languages, together with the relevant language guidance. Respect the user's chosen language, stack, and project instructions; in an existing project, avoid restructuring unrelated code.
 
 ## Language Guidance
 
 For Go work, read [languages/go/conventions.md](languages/go/conventions.md). Reusable Go snippets live in [languages/go/snippets/](languages/go/snippets/); inspect and adapt only the snippets needed for the task.
 
 For Node.js work, read [languages/nodejs/conventions.md](languages/nodejs/conventions.md).
+
+## Comments
+
+- When adding comments, explain why the code exists or a decision was made; do not describe what the code does.
 
 ## Architecture
 
@@ -42,6 +48,7 @@ For Node.js work, read [languages/nodejs/conventions.md](languages/nodejs/conven
 
 ## Data and Events
 
+- Store only encrypted tokens in a database unless the application and database run on the same machine and the database has no external access (for example, a local app using SQLite). In that local-only case, store tokens as is.
 - If a project does not use an ORM, prefer raw SQL queries in repository implementations for performance. Validate and sanitize user input, and use parameterized queries for user-supplied values to prevent SQL injection.
 - Run SQL queries within a database transaction. Use a saga to coordinate a workflow that spans independent transactions or systems.
 - Use the outbox pattern to reliably publish events alongside database changes.
