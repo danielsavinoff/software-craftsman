@@ -14,6 +14,11 @@ Read this file when creating or changing Go code with software-craftsman. Apply 
 - Put shared Go packages intended to be imported by other projects under `pkg/`.
 - Use [golang-migrate](https://github.com/golang-migrate/migrate) for database migrations. Store migration files under `migrations/{database}`, with one folder per database (for example, `migrations/sqlite` and `migrations/postgres`).
 
+## Use Cases
+
+- Start every use case name with a verb, for example `CreateUser`, `UpdatePreferences`, or `FindOrder`.
+- Keep exactly one use case operation per source file. If a file contains multiple use case operations, split them into separate files.
+
 ## Go Source Formatting
 
 - Use `gofmt` as the formatter for Go source files.
