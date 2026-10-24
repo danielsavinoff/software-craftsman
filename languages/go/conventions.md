@@ -22,6 +22,7 @@ Read this file when creating or changing Go code with software-craftsman. Apply 
 ## Go Source Formatting
 
 - Use `gofmt` as the formatter for Go source files.
+- Always use multiline struct declarations when there is at least one field: place the opening brace on the declaration line, each field on its own line, and the closing brace on a separate line. For structs with no fields, use a compact declaration: `type Example struct{}`.
 - In every `.go` file, including tests, put each argument of a call with multiple arguments on its own line, with a trailing comma after the final argument.
 - Separate distinct logical blocks with a blank line. Keep statements in one continuous operation together.
 
